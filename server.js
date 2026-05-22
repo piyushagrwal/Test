@@ -54,9 +54,10 @@ app.post('/users', async(req, res) => {
     res.status(201).json(user);
 })
 
-app.all('*', (req, res) => {
-    res.redirect('/');
-})
+
+app.use((req, res) => {
+  res.status(404).send('Not Found');
+});
 
 const PORT = process.env.PORT;
 
