@@ -7,7 +7,7 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
   const fetchUser = async(id) => {
-    const response = await fetch(`/api/users/${id}`)
+    const response = await fetch(`https://test-production-c75c.up.railway.app/users/${id}`)
     .then(res => console.log(res))
   }
   return (
