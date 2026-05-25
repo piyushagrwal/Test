@@ -7,6 +7,20 @@ function App() {
     const response = await fetch(`https://test-production-c75c.up.railway.app/users/${id}`)
     .then(res => console.log(res))
   }
+
+  const addUser = async(name) => {
+    const response = await fetch(`https://test-production-c75c.up.railway.app/users`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+        }),
+      },
+    ).then((res) => console.log(res));
+  }
   return (
     <>
       <section id="center">
@@ -22,6 +36,9 @@ function App() {
           onClick={() => fetchUser(1)}
         >
           Count is {count}
+        </button>
+        <button type='button' className='counter' onClick={() => addUser('Rahul')}>
+          Add User
         </button>
       </section>
 
